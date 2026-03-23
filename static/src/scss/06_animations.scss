@@ -1,0 +1,301 @@
+// ============================================================
+//  06_animations.scss
+//  Animações, transições e micro-interações.
+//  Tudo com moderação: rápidas, sutis e propositais.
+// ============================================================
+
+
+// ─── VARIÁVEIS DE TIMING ──────────────────────────────────────
+$ease-standard:   cubic-bezier(0.4, 0, 0.2, 1);   // Material standard
+$ease-decelerate: cubic-bezier(0, 0, 0.2, 1);      // Elementos entrando
+$ease-accelerate: cubic-bezier(0.4, 0, 1, 1);      // Elementos saindo
+$ease-spring:     cubic-bezier(0.34, 1.56, 0.64, 1); // Efeito elástico
+
+$dur-instant: 80ms;
+$dur-fast:    150ms;
+$dur-normal:  220ms;
+$dur-slow:    350ms;
+
+
+// ─── ENTRADA DA VIEW PRINCIPAL ────────────────────────────────
+// Fade + slide sutil ao trocar de view
+.o_action_manager .o_action {
+    animation: viewEnter $dur-normal $ease-decelerate;
+}
+
+@keyframes viewEnter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+// ─── CARDS KANBAN ─────────────────────────────────────────────
+.o_kanban_record {
+    will-change: transform, box-shadow;
+}
+
+// Drag and drop do kanban
+.o_kanban_record.o_dragged {
+    animation: cardLift $dur-fast $ease-spring forwards;
+    z-index: 999;
+    pointer-events: none;
+}
+
+@keyframes cardLift {
+    to {
+        transform: rotate(2deg) scale(1.02);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16) !important;
+    }
+}
+
+
+// ─── LINHAS DA LIST VIEW ──────────────────────────────────────
+.o_list_view .o_data_row {
+    transition: background $dur-fast $ease-standard;
+}
+
+// Row selecionada: pulse sutil
+.o_list_view .o_data_row.o_data_row_selected {
+    animation: rowSelect $dur-normal $ease-standard;
+}
+
+@keyframes rowSelect {
+    0%   { background-color: rgba($brand-primary, 0.2); }
+    100% { background-color: rgba($brand-primary, 0.08); }
+}
+
+
+// ─── MODAIS ───────────────────────────────────────────────────
+// Override da animação padrão de modal do Bootstrap
+.modal.fade .modal-dialog {
+    transition: transform $dur-normal $ease-decelerate,
+                opacity $dur-normal ease !important;
+    transform: scale(0.96) translateY(-12px);
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1) translateY(0);
+}
+
+.modal-backdrop.fade {
+    transition: opacity $dur-slow ease !important;
+}
+
+
+// ─── DROPDOWNS ────────────────────────────────────────────────
+.dropdown-menu {
+    animation: dropIn $dur-fast $ease-decelerate;
+    transform-origin: top;
+}
+
+@keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: scaleY(0.9) translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: scaleY(1) translateY(0);
+    }
+}
+
+
+// ─── NOTIFICAÇÕES / TOASTS ────────────────────────────────────
+.o_notification_manager .o_notification {
+    animation: slideInRight $dur-normal $ease-decelerate;
+    border-radius: $border-radius-lg !important;
+    border: none !important;
+    box-shadow: $box-shadow-lg !important;
+    overflow: hidden;
+    padding: 0 !important;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+    }
+
+    &.o_notification_info    { background: #fff; border-left: 4px solid $brand-info;      &::before { background: $brand-info;      } }
+    &.o_notification_success { background: #fff; border-left: 4px solid $brand-secondary;  &::before { background: $brand-secondary;  } }
+    &.o_notification_warning { background: #fff; border-left: 4px solid $brand-warning;    &::before { background: $brand-warning;    } }
+    &.o_notification_danger  { background: #fff; border-left: 4px solid $brand-danger;     &::before { background: $brand-danger;     } }
+
+    .o_notification_content {
+        padding: 14px 16px;
+        font-family: $font-family-base;
+        font-size: $font-size-base;
+    }
+
+    .o_notification_close {
+        top: 10px;
+        right: 10px;
+        opacity: 0.4;
+        transition: opacity $dur-fast;
+
+        &:hover { opacity: 1; }
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+// ─── BOTÕES: RIPPLE EFFECT ────────────────────────────────────
+// Efeito de onda ao clicar nos botões
+.btn {
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.4);
+        opacity: 0;
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        transition: transform $dur-slow $ease-decelerate, opacity $dur-slow;
+    }
+
+    &:active::after {
+        transform: translate(-50%, -50%) scale(40);
+        opacity: 0;
+        transition: 0s;
+    }
+}
+
+
+// ─── HOME MENU (tela de apps) ─────────────────────────────────
+// Apps entram com stagger (cascata)
+.o_home_menu .o_apps .o_app {
+    animation: appPop $dur-slow $ease-spring both;
+
+    @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+            animation-delay: #{($i - 1) * 30}ms;
+        }
+    }
+
+    &:hover {
+        transform: translateY(-4px) scale(1.04);
+        transition: transform $dur-fast $ease-spring;
+
+        .o_caption {
+            color: #fff;
+        }
+    }
+}
+
+@keyframes appPop {
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+// ─── LOADING GLOBAL ───────────────────────────────────────────
+// Barra de progresso no topo durante carregamentos
+.o_loading_indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $brand-primary, $brand-primary-light, $brand-secondary);
+    background-size: 200% 100%;
+    animation: progressBar 1.5s $ease-standard infinite;
+    z-index: 9999;
+    border-radius: 0 0 2px 2px;
+}
+
+@keyframes progressBar {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+
+// ─── FOCUS RING ACESSÍVEL ─────────────────────────────────────
+// Todos os elementos focáveis com anel de foco consistente
+:focus-visible {
+    outline: 2px solid $brand-primary;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+
+// ─── MICRO-INTERAÇÕES ─────────────────────────────────────────
+// Ícones de ação que giram ao hover (ex: refresh, sync)
+.o_refresh_button:hover i,
+[data-action="reload"]:hover i {
+    animation: spin360 $dur-slow $ease-standard;
+}
+
+@keyframes spin360 {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+// Checkbox com bounce ao marcar
+.o-checkbox input[type="checkbox"] {
+    accent-color: $brand-primary;
+    cursor: pointer;
+    transition: transform $dur-fast $ease-spring;
+
+    &:checked {
+        animation: checkBounce $dur-normal $ease-spring;
+    }
+}
+
+@keyframes checkBounce {
+    0%   { transform: scale(0.8); }
+    60%  { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+// Star/favorito com efeito
+.o_priority .o_priority_star {
+    transition: transform $dur-fast $ease-spring, color $dur-fast;
+
+    &:hover {
+        transform: scale(1.3);
+    }
+}
+
+
+// ─── RESPONSIVIDADE ───────────────────────────────────────────
+// Reduz animações para usuários que preferem menos movimento
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

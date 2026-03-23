@@ -1,0 +1,140 @@
+// ============================================================
+//  02_bootstrap_overrides.scss
+//  Sobrescreve variáveis do Bootstrap 5 que o Odoo usa.
+//  Afeta: botões, inputs, cards, badges, tabelas, modais, etc.
+//  ATENÇÃO: apenas variáveis, SEM regras CSS aqui.
+// ============================================================
+
+
+// ─── CORES BOOTSTRAP ──────────────────────────────────────────
+$primary:     $brand-primary;
+$secondary:   $neutral-500;
+$success:     $brand-secondary;
+$info:        $brand-info;
+$warning:     $brand-warning;
+$danger:      $brand-danger;
+$light:       $neutral-100;
+$dark:        $neutral-900;
+
+// ─── TIPOGRAFIA ───────────────────────────────────────────────
+$font-family-sans-serif:  $font-family-base;
+$font-family-monospace:   $font-family-mono;
+$font-size-base:          0.875rem;    // 14px — mais compacto para SaaS
+$font-size-sm:            0.8125rem;   // 13px
+$font-size-lg:            1rem;        // 16px
+$font-weight-normal:      400;
+$font-weight-medium:      500;
+$font-weight-semibold:    600;
+$font-weight-bold:        700;
+$line-height-base:        1.6;
+$headings-font-weight:    600;
+$headings-color:          $neutral-800;
+
+// ─── BORDAS E ARREDONDAMENTO ──────────────────────────────────
+$border-color:       $neutral-200;
+$border-width:       1px;
+$border-radius:      8px;
+$border-radius-sm:   6px;
+$border-radius-lg:   12px;
+$border-radius-xl:   16px;
+$border-radius-pill: 999px;
+
+// ─── SOMBRAS ──────────────────────────────────────────────────
+$box-shadow-xs:  0 1px 2px rgba(0, 0, 0, 0.05);
+$box-shadow-sm:  0 1px 6px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+$box-shadow:     0 4px 16px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.04);
+$box-shadow-lg:  0 8px 32px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(0, 0, 0, 0.06);
+
+// ─── CARDS ────────────────────────────────────────────────────
+$card-border-width:    0;
+$card-border-radius:   $border-radius-lg;
+$card-box-shadow:      $box-shadow-sm;
+$card-cap-bg:          transparent;
+$card-spacer-x:        1.25rem;
+$card-spacer-y:        1rem;
+$card-bg:              #FFFFFF;
+
+// ─── BOTÕES ───────────────────────────────────────────────────
+$btn-border-radius:       $border-radius;
+$btn-border-radius-sm:    $border-radius-sm;
+$btn-border-radius-lg:    $border-radius-lg;
+$btn-font-weight:         500;
+$btn-font-size:           0.875rem;
+$btn-padding-y:           0.4375rem;   // 7px
+$btn-padding-x:           1rem;        // 16px
+$btn-padding-y-sm:        0.3125rem;   // 5px
+$btn-padding-x-sm:        0.75rem;     // 12px
+$btn-box-shadow:          none;
+$btn-focus-box-shadow:    0 0 0 3px rgba($brand-primary, 0.2);
+$btn-transition:          all 0.18s ease;
+
+// ─── INPUTS / FORMS ───────────────────────────────────────────
+$input-border-color:          $neutral-300;
+$input-border-radius:         $border-radius;
+$input-border-radius-sm:      $border-radius-sm;
+$input-border-radius-lg:      $border-radius;
+$input-focus-border-color:    $brand-primary;
+$input-focus-box-shadow:      0 0 0 3px rgba($brand-primary, 0.15);
+$input-placeholder-color:     $neutral-400;
+$input-font-size:             $font-size-base;
+$input-padding-y:             0.4375rem;
+$input-padding-x:             0.75rem;
+$input-bg:                    #FFFFFF;
+$input-color:                 $neutral-800;
+$form-label-font-weight:      500;
+$form-label-color:            $neutral-600;
+$form-label-margin-bottom:    0.35rem;
+
+// ─── SELECT ───────────────────────────────────────────────────
+$form-select-border-color:    $input-border-color;
+$form-select-border-radius:   $border-radius;
+$form-select-focus-border-color: $brand-primary;
+$form-select-focus-box-shadow: $input-focus-box-shadow;
+
+// ─── TABELAS ──────────────────────────────────────────────────
+$table-striped-bg:      rgba($brand-primary, 0.025);
+$table-hover-bg:        rgba($brand-primary, 0.04);
+$table-border-color:    $neutral-200;
+$table-cell-padding-y:  0.6rem;
+$table-cell-padding-x:  0.875rem;
+$table-th-font-weight:  600;
+
+// ─── BADGES ───────────────────────────────────────────────────
+$badge-border-radius:  $border-radius-pill;
+$badge-font-weight:    500;
+$badge-font-size:      0.75em;
+$badge-padding-y:      0.3em;
+$badge-padding-x:      0.65em;
+
+// ─── MODAIS ───────────────────────────────────────────────────
+$modal-content-border-radius:     $border-radius-xl;
+$modal-content-border-width:      0;
+$modal-content-box-shadow-xs:     $box-shadow-lg;
+$modal-content-box-shadow-sm-up:  $box-shadow-lg;
+$modal-header-border-color:       $neutral-100;
+$modal-footer-border-color:       $neutral-100;
+$modal-inner-padding:             1.5rem;
+
+// ─── DROPDOWNS ────────────────────────────────────────────────
+$dropdown-border-color:     $neutral-200;
+$dropdown-border-radius:    $border-radius-lg;
+$dropdown-box-shadow:       $box-shadow-lg;
+$dropdown-link-hover-bg:    $brand-primary-pale;
+$dropdown-link-hover-color: $brand-primary-dark;
+$dropdown-item-padding-y:   0.45rem;
+$dropdown-item-padding-x:   1rem;
+$dropdown-font-size:        $font-size-base;
+
+// ─── TOOLTIPS ─────────────────────────────────────────────────
+$tooltip-bg:            $neutral-900;
+$tooltip-border-radius: $border-radius-sm;
+$tooltip-font-size:     0.8125rem;
+
+// ─── PAGINATION ───────────────────────────────────────────────
+$pagination-border-radius:        $border-radius;
+$pagination-active-bg:            $brand-primary;
+$pagination-active-border-color:  $brand-primary;
+
+// ─── TRANSITIONS ──────────────────────────────────────────────
+$transition-base: all 0.18s ease;
+$transition-fade: opacity 0.15s ease;

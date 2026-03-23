@@ -1,0 +1,449 @@
+// ============================================================
+//  04_components.scss
+//  Componentes reutilizáveis: botões, inputs, badges,
+//  cards, modais, dropdowns, tooltips, alerts, tabs, etc.
+// ============================================================
+
+
+// ─── BOTÕES ───────────────────────────────────────────────────
+.btn {
+    font-family: $font-family-base;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    border-radius: $border-radius !important;
+    transition: all 0.18s ease !important;
+    border-width: 1px;
+    line-height: 1.5;
+
+    &:focus, &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba($brand-primary, 0.2) !important;
+    }
+}
+
+// Botão primário — azul sólido com hover escurecido
+.btn-primary {
+    background-color: $brand-primary !important;
+    border-color: $brand-primary !important;
+    color: #fff !important;
+
+    &:hover {
+        background-color: $brand-primary-dark !important;
+        border-color: $brand-primary-dark !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba($brand-primary, 0.35) !important;
+    }
+
+    &:active {
+        transform: translateY(0);
+        background-color: darken($brand-primary-dark, 5%) !important;
+    }
+}
+
+// Botão secundário — borda sutil
+.btn-secondary {
+    background-color: #fff !important;
+    border-color: $neutral-300 !important;
+    color: $neutral-700 !important;
+
+    &:hover {
+        background-color: $neutral-50 !important;
+        border-color: $neutral-400 !important;
+        color: $neutral-900 !important;
+    }
+}
+
+// Botão de perigo
+.btn-danger {
+    background-color: $brand-danger !important;
+    border-color: $brand-danger !important;
+    color: #fff !important;
+
+    &:hover {
+        background-color: darken($brand-danger, 8%) !important;
+        border-color: darken($brand-danger, 8%) !important;
+        box-shadow: 0 4px 12px rgba($brand-danger, 0.3) !important;
+    }
+}
+
+// Botão success
+.btn-success {
+    background-color: $brand-secondary !important;
+    border-color: $brand-secondary !important;
+    color: #fff !important;
+
+    &:hover {
+        background-color: darken($brand-secondary, 8%) !important;
+        border-color: darken($brand-secondary, 8%) !important;
+        box-shadow: 0 4px 12px rgba($brand-secondary, 0.3) !important;
+    }
+}
+
+// Botão warning
+.btn-warning {
+    background-color: $brand-warning !important;
+    border-color: $brand-warning !important;
+    color: #fff !important;
+
+    &:hover {
+        background-color: darken($brand-warning, 8%) !important;
+    }
+}
+
+// Link button
+.btn-link {
+    color: $brand-primary !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+
+    &:hover {
+        color: $brand-primary-dark !important;
+        text-decoration: underline !important;
+    }
+}
+
+// Grupos de botões
+.btn-group .btn {
+    &:first-child { border-radius: $border-radius 0 0 $border-radius !important; }
+    &:last-child  { border-radius: 0 $border-radius $border-radius 0 !important; }
+    &:not(:first-child):not(:last-child) { border-radius: 0 !important; }
+}
+
+// Status bar de workflow (botões de estado)
+.o_statusbar_status {
+    .btn {
+        border-radius: 0 !important;
+        font-weight: 500;
+        font-size: 0.8125rem;
+
+        &.btn-primary {
+            background: $brand-primary !important;
+        }
+    }
+}
+
+
+// ─── INPUTS E FORMULÁRIOS ─────────────────────────────────────
+.form-control,
+.o_field_widget input,
+.o_field_widget textarea,
+.o_field_widget select {
+    font-family: $font-family-base !important;
+    font-size: $font-size-base !important;
+    color: $neutral-800 !important;
+    background-color: #fff !important;
+    border: 1px solid $neutral-300 !important;
+    border-radius: $border-radius !important;
+    padding: 7px 12px !important;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease !important;
+    line-height: 1.5;
+
+    &::placeholder {
+        color: $neutral-400 !important;
+    }
+
+    &:focus, &:focus-within {
+        border-color: $brand-primary !important;
+        box-shadow: 0 0 0 3px rgba($brand-primary, 0.15) !important;
+        outline: none !important;
+    }
+
+    &[readonly], &:disabled {
+        background-color: $neutral-50 !important;
+        color: $neutral-500 !important;
+        cursor: not-allowed;
+    }
+}
+
+// Labels dos campos
+.o_field_widget > label,
+.o_wrap_field > label,
+.o_td_label .o_form_label {
+    font-weight: 500 !important;
+    color: $neutral-600 !important;
+    font-size: 0.8125rem !important;
+    margin-bottom: 4px !important;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+// Campo Many2One (dropdown de busca)
+.o_field_many2one .o_external_button {
+    color: $brand-primary;
+    border-color: $neutral-300;
+    border-radius: 0 $border-radius $border-radius 0 !important;
+
+    &:hover {
+        background: $brand-primary-pale;
+        border-color: $brand-primary;
+        color: $brand-primary-dark;
+    }
+}
+
+
+// ─── BADGES / STATUS PILLS ────────────────────────────────────
+.badge {
+    font-family: $font-family-base;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border-radius: $border-radius-pill !important;
+    padding: 0.3em 0.7em !important;
+}
+
+// Status de registros (Odoo usa classes o_status_*)
+.o_badge_text,
+.o_field_badge .badge {
+    border-radius: $border-radius-pill !important;
+}
+
+// Cores de status customizadas
+.badge-success, .bg-success { background-color: $brand-secondary !important; }
+.badge-danger,  .bg-danger  { background-color: $brand-danger    !important; }
+.badge-warning, .bg-warning { background-color: $brand-warning   !important; color: #fff !important; }
+.badge-info,    .bg-info    { background-color: $brand-info      !important; }
+.badge-primary, .bg-primary { background-color: $brand-primary   !important; }
+
+
+// ─── CARDS ────────────────────────────────────────────────────
+.card {
+    border: none !important;
+    border-radius: $border-radius-lg !important;
+    box-shadow: $box-shadow-sm !important;
+    background: #fff;
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+        box-shadow: $box-shadow !important;
+    }
+
+    .card-header {
+        background: transparent !important;
+        border-bottom: 1px solid $neutral-100 !important;
+        font-weight: 600;
+        color: $neutral-800;
+        padding: 1rem 1.25rem;
+    }
+
+    .card-footer {
+        background: transparent !important;
+        border-top: 1px solid $neutral-100 !important;
+    }
+}
+
+
+// ─── MODAIS ───────────────────────────────────────────────────
+.modal-content {
+    border: none !important;
+    border-radius: $border-radius-xl !important;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    overflow: hidden;
+}
+
+.modal-header {
+    background: #fff;
+    border-bottom: 1px solid $neutral-100 !important;
+    padding: 1.25rem 1.5rem !important;
+
+    .modal-title {
+        font-weight: 600;
+        font-size: 1rem;
+        color: $neutral-900;
+    }
+
+    .btn-close {
+        opacity: 0.4;
+        transition: opacity 0.15s;
+
+        &:hover { opacity: 0.8; }
+    }
+}
+
+.modal-footer {
+    border-top: 1px solid $neutral-100 !important;
+    padding: 1rem 1.5rem !important;
+    background: $neutral-50;
+}
+
+.modal-backdrop {
+    background-color: $neutral-900 !important;
+
+    &.show { opacity: 0.5 !important; }
+}
+
+
+// ─── DROPDOWNS ────────────────────────────────────────────────
+.dropdown-menu {
+    border: 1px solid $neutral-200 !important;
+    border-radius: $border-radius-lg !important;
+    box-shadow: $box-shadow-lg !important;
+    padding: 6px !important;
+    background: #fff;
+    min-width: 180px;
+
+    .dropdown-item {
+        border-radius: $border-radius !important;
+        font-size: $font-size-base;
+        color: $neutral-700;
+        padding: 7px 12px !important;
+        transition: background 0.12s ease, color 0.12s ease;
+        font-weight: 400;
+
+        &:hover, &:focus {
+            background-color: $brand-primary-pale !important;
+            color: $brand-primary-dark !important;
+        }
+
+        &.active, &:active {
+            background-color: $brand-primary !important;
+            color: #fff !important;
+        }
+    }
+
+    .dropdown-divider {
+        border-color: $neutral-100 !important;
+        margin: 4px 0 !important;
+    }
+
+    .dropdown-header {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: $neutral-400;
+        padding: 6px 12px 4px !important;
+    }
+}
+
+
+// ─── TABS ─────────────────────────────────────────────────────
+.nav-tabs {
+    border-bottom: 2px solid $neutral-200 !important;
+
+    .nav-link {
+        color: $neutral-500;
+        font-weight: 500;
+        border: none !important;
+        border-bottom: 2px solid transparent !important;
+        border-radius: 0 !important;
+        padding: 8px 16px !important;
+        margin-bottom: -2px;
+        transition: color 0.15s, border-color 0.15s;
+
+        &:hover {
+            color: $brand-primary;
+            border-bottom-color: $brand-primary-light !important;
+        }
+
+        &.active {
+            color: $brand-primary !important;
+            border-bottom-color: $brand-primary !important;
+            font-weight: 600;
+            background: transparent !important;
+        }
+    }
+}
+
+// Tabs do formulário Odoo (notebook)
+.o_notebook .nav-tabs .nav-link {
+    font-size: $font-size-base;
+}
+
+
+// ─── ALERTS ───────────────────────────────────────────────────
+.alert {
+    border: none !important;
+    border-radius: $border-radius-lg !important;
+    border-left: 4px solid transparent !important;
+    font-size: $font-size-base;
+
+    &.alert-info    { background: $brand-info-pale    !important; border-left-color: $brand-info    !important; color: darken($brand-info, 15%)    !important; }
+    &.alert-success { background: $brand-secondary-pale !important; border-left-color: $brand-secondary !important; color: darken($brand-secondary, 15%) !important; }
+    &.alert-warning { background: $brand-warning-pale  !important; border-left-color: $brand-warning   !important; color: darken($brand-warning, 20%)   !important; }
+    &.alert-danger  { background: $brand-danger-pale   !important; border-left-color: $brand-danger    !important; color: darken($brand-danger, 15%)    !important; }
+}
+
+
+// ─── TOOLTIPS ─────────────────────────────────────────────────
+.tooltip {
+    .tooltip-inner {
+        background: $neutral-900;
+        border-radius: $border-radius-sm;
+        font-size: 0.8rem;
+        padding: 5px 10px;
+        font-family: $font-family-base;
+    }
+}
+
+
+// ─── PAGINATION ───────────────────────────────────────────────
+.o_pager {
+    .o_pager_previous, .o_pager_next {
+        border-radius: $border-radius !important;
+        border: 1px solid $neutral-200 !important;
+        background: #fff;
+        color: $neutral-600;
+        transition: all 0.15s;
+        font-weight: 500;
+
+        &:hover {
+            background: $brand-primary-pale !important;
+            border-color: $brand-primary !important;
+            color: $brand-primary !important;
+        }
+    }
+
+    .o_pager_limit {
+        font-size: $font-size-sm;
+        color: $neutral-500;
+        font-weight: 500;
+    }
+}
+
+
+// ─── LOADING SPINNER ──────────────────────────────────────────
+.o_loading {
+    .o_loading_logo {
+        animation: spin 1s linear infinite;
+    }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+// Skeleton loading (shimmer effect)
+.o_skeleton {
+    background: linear-gradient(90deg, $neutral-200 25%, $neutral-100 50%, $neutral-200 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: $border-radius;
+}
+
+@keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+
+// ─── TAGS / MANY2MANY TAGS ────────────────────────────────────
+.o_field_many2many_tags .badge,
+.o_tags_list .badge {
+    background-color: $brand-primary-pale !important;
+    color: $brand-primary-dark !important;
+    border: 1px solid rgba($brand-primary, 0.2) !important;
+    font-weight: 500 !important;
+    border-radius: $border-radius-pill !important;
+    padding: 3px 10px !important;
+    font-size: 0.8rem !important;
+    transition: all 0.15s;
+
+    &:hover {
+        background-color: rgba($brand-primary, 0.15) !important;
+    }
+
+    .o_delete {
+        opacity: 0.5;
+        &:hover { opacity: 1; }
+    }
+}

@@ -1,0 +1,206 @@
+// ============================================================
+//  03_layout.scss
+//  Estrutura principal: navbar, sidebar, content, scrollbar.
+//  Essas são as peças maiores do layout do backend.
+// ============================================================
+
+
+// ─── RESET E BASE ─────────────────────────────────────────────
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body.o_web_client {
+    font-family: $font-family-base;
+    background-color: $neutral-100;
+    color: $neutral-800;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+// ─── SCROLLBAR CUSTOMIZADA ────────────────────────────────────
+// Estilo fino e elegante para toda a aplicação
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $neutral-300;
+    border-radius: 999px;
+
+    &:hover {
+        background: $neutral-400;
+    }
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $neutral-300 transparent;
+}
+
+
+// ─── NAVBAR PRINCIPAL ─────────────────────────────────────────
+.o_main_navbar {
+    height: $navbar-height !important;
+    min-height: $navbar-height !important;
+    background-color: $navbar-bg !important;
+    border-bottom: 1px solid $navbar-border !important;
+    box-shadow: 0 1px 0 $neutral-200, 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    padding: 0 16px !important;
+    z-index: 1040 !important;
+    display: flex !important;
+    align-items: center !important;
+
+    // Logo da empresa
+    > .o_menu_brand {
+        font-family: $font-family-base;
+        font-weight: 700;
+        font-size: 1rem;
+        color: $neutral-900 !important;
+        letter-spacing: -0.02em;
+        padding: 0 12px 0 4px;
+        text-decoration: none;
+
+        &:hover {
+            color: $brand-primary !important;
+        }
+    }
+
+    // Ícones do topo direito (debug, apps, usuário, etc.)
+    .o_navbar_apps_menu,
+    .o_menu_sections > .o_nav_entry,
+    > .o_action_manager_action > button {
+        color: $neutral-600 !important;
+        transition: color 0.15s ease, background 0.15s ease;
+        border-radius: $border-radius;
+
+        &:hover {
+            color: $brand-primary !important;
+            background-color: $brand-primary-pale !important;
+        }
+    }
+
+    // Campo de busca do navbar
+    .o_searchview {
+        border-radius: $border-radius-pill !important;
+        border: 1px solid $neutral-200 !important;
+        background: $neutral-50 !important;
+        transition: all 0.2s ease;
+        height: 34px;
+
+        &:focus-within {
+            border-color: $brand-primary !important;
+            background: #fff !important;
+            box-shadow: 0 0 0 3px rgba($brand-primary, 0.12) !important;
+        }
+
+        .o_searchview_input {
+            font-family: $font-family-base;
+            font-size: $font-size-base;
+            color: $neutral-800;
+        }
+    }
+}
+
+
+// ─── SIDEBAR / MENU LATERAL ───────────────────────────────────
+.o_action_manager,
+.o_web_client > .o_main_navbar ~ div {
+    background: $neutral-100;
+}
+
+// Menu de apps (home)
+.o_home_menu {
+    background: linear-gradient(135deg, $neutral-900 0%, $neutral-800 100%);
+
+    .o_app {
+        .o_caption {
+            color: rgba(255,255,255,0.85);
+            font-family: $font-family-base;
+            font-weight: 500;
+        }
+
+        &:hover .o_caption {
+            color: #fff;
+        }
+    }
+}
+
+// Menu de apps na home (ícones grandes)
+.o_home_menu_background {
+    background: linear-gradient(160deg, #0F172A 0%, #1E293B 50%, #0F172A 100%) !important;
+}
+
+// ─── MENU LATERAL (Módulos com submenus) ──────────────────────
+.o_menu_sections {
+    // Item de menu ativo
+    .o_nav_entry.active,
+    .o_dropdown_menu .o_menu_entry:hover {
+        color: $brand-primary !important;
+        background: $brand-primary-pale !important;
+        border-radius: $border-radius;
+    }
+}
+
+// ─── ÁREA DE CONTEÚDO PRINCIPAL ───────────────────────────────
+.o_content {
+    background-color: $neutral-100;
+    padding: 0;
+}
+
+// Control Panel (barra de topo das views com botões e filtros)
+.o_control_panel {
+    background-color: #FFFFFF !important;
+    border-bottom: 1px solid $neutral-200 !important;
+    box-shadow: 0 1px 0 $neutral-100 !important;
+    padding: 8px 20px !important;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+
+    // Título da view
+    .o_control_panel_title {
+        font-family: $font-family-base;
+        font-weight: 600;
+        font-size: 1.05rem;
+        color: $neutral-900;
+        letter-spacing: -0.01em;
+    }
+
+    // Breadcrumb
+    .breadcrumb {
+        font-size: $font-size-base;
+        margin-bottom: 0;
+
+        .breadcrumb-item {
+            color: $neutral-500;
+
+            &.active {
+                color: $neutral-800;
+                font-weight: 500;
+            }
+
+            a {
+                color: $brand-primary;
+                text-decoration: none;
+                font-weight: 500;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+// ─── PAINEL DIREITO (chatter, etc.) ───────────────────────────
+.o_form_view .o_chatter {
+    border-left: 1px solid $neutral-200;
+    background: #FFFFFF;
+}

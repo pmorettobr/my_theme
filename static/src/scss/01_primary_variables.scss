@@ -1,0 +1,86 @@
+// ============================================================
+//  01_primary_variables.scss
+//  Variáveis primárias do Odoo — carregadas antes de tudo.
+//  Aqui ficam cores, fontes e a paleta da marca.
+//  ATENÇÃO: apenas variáveis e mixins, SEM regras CSS aqui.
+// ============================================================
+
+
+// ─── GOOGLE FONTS ────────────────────────────────────────────
+// DM Sans: moderna, geométrica, excelente para dashboards SaaS
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+
+
+// ─── PALETA DE CORES DA MARCA ────────────────────────────────
+
+// Cor principal — Azul-índigo profissional
+$brand-primary:       #4F6EF7;
+$brand-primary-dark:  #3A56D4;
+$brand-primary-light: #7B93F9;
+$brand-primary-pale:  #EEF1FE;
+
+// Cor secundária — Verde-teal moderno
+$brand-secondary:     #10B981;
+$brand-secondary-pale:#D1FAE5;
+
+// Alerta / Danger
+$brand-danger:        #F43F5E;
+$brand-danger-pale:   #FFE4E9;
+
+// Warning
+$brand-warning:       #F59E0B;
+$brand-warning-pale:  #FEF3C7;
+
+// Info
+$brand-info:          #06B6D4;
+$brand-info-pale:     #CFFAFE;
+
+// ─── ODOO ENTERPRISE COLOR OVERRIDES ─────────────────────────
+// Essas variáveis são lidas pelo Odoo para colorir elementos globais
+$o-enterprise-color:         $brand-primary        !default;
+$o-enterprise-action-color:  $brand-primary-dark   !default;
+$o-brand-primary:            $brand-primary        !default;
+$o-brand-secondary:          $brand-secondary      !default;
+
+// ─── TONS NEUTROS ─────────────────────────────────────────────
+// Sistema de cinzas — base de todo o layout
+$neutral-50:   #F8FAFC;
+$neutral-100:  #F1F5F9;
+$neutral-200:  #E2E8F0;
+$neutral-300:  #CBD5E1;
+$neutral-400:  #94A3B8;
+$neutral-500:  #64748B;
+$neutral-600:  #475569;
+$neutral-700:  #334155;
+$neutral-800:  #1E293B;
+$neutral-900:  #0F172A;
+
+// ─── SIDEBAR / NAVBAR ─────────────────────────────────────────
+$sidebar-bg:            #111827;   // cinza carvão profundo
+$sidebar-bg-hover:      #1F2937;
+$sidebar-text:          #9CA3AF;
+$sidebar-text-active:   #F9FAFB;
+$sidebar-accent:        $brand-primary;
+$sidebar-width:         220px;
+
+$navbar-bg:             #FFFFFF;
+$navbar-height:         52px;
+$navbar-border:         #E2E8F0;
+
+// ─── TIPOGRAFIA ───────────────────────────────────────────────
+$font-family-base:      'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-mono:      'DM Mono', 'Fira Code', monospace;
+
+$o-theme-font-configs: (
+    'DM Sans': (
+        'family': ('DM Sans', sans-serif),
+        'url': 'DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700',
+    ),
+) !default;
+
+// ─── CORES DE TEXTO ───────────────────────────────────────────
+$o-main-text-color:         $neutral-800  !default;
+$o-main-color-muted:        $neutral-500  !default;
+
+// ─── FUNDO GERAL DO BACKEND ───────────────────────────────────
+$o-main-content-bgcolor:    $neutral-100  !default;
