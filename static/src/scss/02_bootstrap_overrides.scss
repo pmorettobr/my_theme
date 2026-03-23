@@ -17,33 +17,24 @@ $light:       $neutral-100;
 $dark:        $neutral-900;
 
 // ─── TIPOGRAFIA ───────────────────────────────────────────────
+// $font-family-base, $font-family-mono, $font-size-base e $font-size-sm
+// já estão declarados em 01_primary_variables.scss.
+// Aqui apenas sobrescrevemos as variáveis nativas do Bootstrap 5:
 $font-family-sans-serif:  $font-family-base;
 $font-family-monospace:   $font-family-mono;
-$font-size-base:          0.875rem;    // 14px — mais compacto para SaaS
-$font-size-sm:            0.8125rem;   // 13px
-$font-size-lg:            1rem;        // 16px
-$font-weight-normal:      400;
-$font-weight-medium:      500;
-$font-weight-semibold:    600;
-$font-weight-bold:        700;
-$line-height-base:        1.6;
 $headings-font-weight:    600;
 $headings-color:          $neutral-800;
 
 // ─── BORDAS E ARREDONDAMENTO ──────────────────────────────────
+// Nota: $border-radius, $border-radius-sm, $border-radius-lg,
+//       $border-radius-xl e $box-shadow-* já foram declarados em
+//       01_primary_variables.scss — apenas sobrescrevemos o $border-color aqui.
 $border-color:       $neutral-200;
 $border-width:       1px;
-$border-radius:      8px;
-$border-radius-sm:   6px;
-$border-radius-lg:   12px;
-$border-radius-xl:   16px;
-$border-radius-pill: 999px;
 
-// ─── SOMBRAS ──────────────────────────────────────────────────
-$box-shadow-xs:  0 1px 2px rgba(0, 0, 0, 0.05);
-$box-shadow-sm:  0 1px 6px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
-$box-shadow:     0 4px 16px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.04);
-$box-shadow-lg:  0 8px 32px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(0, 0, 0, 0.06);
+// ─── SOMBRAS (referência — declaradas em 01_primary_variables) ─
+// $box-shadow-xs, $box-shadow-sm, $box-shadow, $box-shadow-lg
+// já estão disponíveis via 01_primary_variables.scss.
 
 // ─── CARDS ────────────────────────────────────────────────────
 $card-border-width:    0;
