@@ -1,61 +1,24 @@
 // ============================================================
-//  05_views.scss
-//  Refinamentos específicos por tipo de view.
+//  05_views.scss  —  ULTRA MINIMALISTA
+//  Só ajustes visuais que não afetam posicionamento/layout.
 // ============================================================
 
-// ─── FORM VIEW ───────────────────────────────────────────────
-.o_form_view {
-    .o_form_sheet_bg {
-        background-color: #F1F5F9;
-        padding: 16px;
-    }
-
-    // Separadores de seção
-    .o_horizontal_separator {
-        color: #475569;
-        font-weight: 600;
-        border-bottom: 1px solid #E2E8F0;
-        padding-bottom: 6px;
-        margin-bottom: 12px;
-        margin-top: 20px;
-    }
+// Fundo cinza claro no sheet do formulário
+.o_form_view .o_form_sheet {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
 }
 
-// ─── PAGER ───────────────────────────────────────────────────
-.o_pager {
-    color: #64748B;
-    font-size: 0.9em;
+// Separadores do formulário
+.o_form_view .o_horizontal_separator {
+    font-weight: 600;
+    color: #475569;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 4px;
 }
 
-// ─── KANBAN COLUNAS ──────────────────────────────────────────
-// Fundo das colunas kanban
-.o_kanban_group {
-    background-color: #E9EDF5 !important;
-    border-radius: 10px !important;
-    border: none !important;
-}
-
-// Título da coluna kanban
-.o_kanban_header .o_kanban_header_title {
-    font-weight: 600 !important;
-    color: #475569 !important;
-}
-
-// ─── ACTIVITY VIEW ───────────────────────────────────────────
-.o_activity_view .o_activity_record:hover {
-    background-color: #EEF1FE;
-}
-
-// ─── PIVOT VIEW ──────────────────────────────────────────────
-.o_pivot table {
-    thead th {
-        background-color: #F8FAFC !important;
-        font-weight: 600 !important;
-        color: #64748B !important;
-        font-size: 0.8em !important;
-        text-transform: uppercase !important;
-    }
-    tbody tr:hover td {
-        background-color: #EEF1FE !important;
-    }
+// Search facets (filtros ativos)
+.o_searchview_facet {
+    border-radius: 999px !important;
+    background-color: #EEF1FE !important;
+    color: #3A56D4 !important;
 }

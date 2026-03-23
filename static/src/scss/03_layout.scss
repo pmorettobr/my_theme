@@ -1,42 +1,23 @@
 // ============================================================
-//  03_layout.scss
-//  Ajustes de layout — baseados nas classes CSS reais do Odoo.
+//  03_layout.scss  —  ULTRA MINIMALISTA
 // ============================================================
 
-// ─── GOOGLE FONTS ────────────────────────────────────────────
+// Fonte via Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
 
-// ─── FONTE GLOBAL ────────────────────────────────────────────
+// Aplica fonte global
 .o_web_client {
     font-family: 'DM Sans', -apple-system, sans-serif !important;
     -webkit-font-smoothing: antialiased;
 }
 
-// ─── SCROLLBAR FINA ──────────────────────────────────────────
+// Scrollbar fina
 ::-webkit-scrollbar        { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track  { background: transparent; }
-::-webkit-scrollbar-thumb  {
-    background: #CBD5E1;
-    border-radius: 999px;
-    &:hover { background: #94A3B8; }
-}
+::-webkit-scrollbar-thumb  { background: #CBD5E1; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
 
-// ─── NAVBAR ──────────────────────────────────────────────────
-// O Odoo coloca cor via $o-navbar-background que já sobrescrevemos no 01.
-// Aqui só adicionamos sombra sutil.
+// Sombra na navbar (a cor já vem do 01_primary_variables)
 .o_main_navbar {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-}
-
-// ─── FUNDO DO CONTEÚDO ───────────────────────────────────────
-// .o_action_manager é o container real das views no Odoo 16
-.o_action_manager {
-    background-color: #F1F5F9;
-}
-
-// ─── CONTROL PANEL ───────────────────────────────────────────
-.o_control_panel {
-    background-color: #ffffff;
-    border-bottom: 1px solid #E2E8F0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
 }

@@ -1,10 +1,4 @@
 // ============================================================
-//  02_bootstrap_overrides.scss
-//  Pequenos ajustes no Bootstrap via variáveis nativas.
-//  Carregado dentro de web.assets_backend.
+//  02_bootstrap_overrides.scss  —  ULTRA MINIMALISTA
 // ============================================================
-
-// Fonte — DM Sans via Google Fonts (carregada no 03_layout.scss)
-// Sobrescreve a variável do Bootstrap que o Odoo referencia
-$font-family-sans-serif: 'DM Sans', -apple-system, BlinkMacSystemFont,
-                          'Segoe UI', Roboto, sans-serif;
+$font-family-sans-serif: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
