@@ -22,17 +22,18 @@
     'installable': True,
     'auto_install': False,
     'license': 'LGPL-3',
+    'data': [
+        'views/assets.xml',
+    ],
     'assets': {
-        # 1. Variáveis primárias — carregadas ANTES de tudo (cores, fontes, paleta)
+        # Bundle 1: Variáveis primárias — carregadas ANTES do Bootstrap
+        # Só variáveis e mixins, ZERO regras CSS aqui
         'web._assets_primary_variables': [
             ('prepend', 'my_theme/static/src/scss/01_primary_variables.scss'),
         ],
-        # 2. Helpers do Bootstrap — sobrescreve variáveis do Bootstrap
-        'web._assets_frontend_helpers': [
-            ('prepend', 'my_theme/static/src/scss/02_bootstrap_overrides.scss'),
-        ],
-        # 3. Estilos do backend — aplicados após o framework carregar
+        # Bundle 2: Estilos do backend — aplicados após o framework
         'web.assets_backend': [
+            'my_theme/static/src/scss/02_bootstrap_overrides.scss',
             'my_theme/static/src/scss/03_layout.scss',
             'my_theme/static/src/scss/04_components.scss',
             'my_theme/static/src/scss/05_views.scss',

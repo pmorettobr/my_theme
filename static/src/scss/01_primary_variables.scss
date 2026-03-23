@@ -6,9 +6,8 @@
 // ============================================================
 
 
-// ─── GOOGLE FONTS ────────────────────────────────────────────
-// DM Sans: moderna, geométrica, excelente para dashboards SaaS
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+// NOTA: Google Fonts é carregado via template XML (ver views/assets.xml)
+// NÃO usar @import url() neste bundle — apenas variáveis e mixins são permitidos.
 
 
 // ─── PALETA DE CORES DA MARCA ────────────────────────────────
