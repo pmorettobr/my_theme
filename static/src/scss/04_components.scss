@@ -1,74 +1,100 @@
 // ============================================================
-//  04_components.scss  —  VERSÃO MINIMALISTA SEGURA
-//  Refinamentos mínimos nos componentes existentes do Odoo.
-//  Sem reescrever estrutura — só cor, tipografia e raio.
+//  04_components.scss
+//  Refinamentos nos componentes — usando seletores reais do Odoo 16.
 // ============================================================
 
-// ─── BOTÕES ──────────────────────────────────────────────────
-// Só ajusta a cor primária — estrutura intacta
+// ─── BOTÃO PRIMÁRIO ──────────────────────────────────────────
 .btn-primary {
     background-color: #4F6EF7 !important;
     border-color: #4F6EF7 !important;
-    &:hover {
+
+    &:hover, &:focus {
         background-color: #3A56D4 !important;
         border-color: #3A56D4 !important;
     }
-    &:focus, &:active {
-        background-color: #3A56D4 !important;
-        border-color: #3A56D4 !important;
-        box-shadow: 0 0 0 0.2rem rgba(79, 110, 247, 0.25) !important;
+    &:active {
+        background-color: darken(#3A56D4, 5%) !important;
     }
 }
 
-// ─── LINKS ───────────────────────────────────────────────────
+// ─── LINK COLOR ──────────────────────────────────────────────
 a { color: #4F6EF7; }
 a:hover { color: #3A56D4; }
 
-// ─── BADGES DE STATUS ────────────────────────────────────────
-// Refinamento visual das pills de status
-.o_field_badge .badge,
-.badge.text-bg-success { background-color: #10B981 !important; }
-.badge.text-bg-danger  { background-color: #F43F5E !important; }
-.badge.text-bg-warning { background-color: #F59E0B !important; color: #fff !important; }
-.badge.text-bg-info    { background-color: #06B6D4 !important; }
-
-// ─── CONTROL PANEL ───────────────────────────────────────────
-.o_control_panel {
-    background-color: #ffffff;
-    border-bottom: 1px solid #E2E8F0;
-}
-
 // ─── FORM SHEET ──────────────────────────────────────────────
-// Só adiciona sombra sutil — sem mudar estrutura
+// .o_form_sheet é o card branco do formulário
 .o_form_sheet {
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
-    border-radius: 12px;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.07) !important;
 }
 
 // ─── LIST VIEW ───────────────────────────────────────────────
-// Hover suave nas linhas
-.o_list_view .o_data_row:hover td {
-    background-color: #EEF1FE !important;
+.o_list_view {
+    // Header da tabela
+    thead th {
+        background-color: #F8FAFC !important;
+        color: #64748B !important;
+        font-weight: 600 !important;
+        font-size: 0.8em !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.05em !important;
+    }
+    // Hover nas linhas
+    .o_data_row:hover td {
+        background-color: #EEF1FE !important;
+    }
 }
 
-// Header da tabela mais discreto
-.o_list_view thead th {
-    background-color: #F8FAFC !important;
-    color: #64748B !important;
-    font-weight: 600 !important;
-    font-size: 0.75rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
-}
-
-// ─── KANBAN CARDS ────────────────────────────────────────────
+// ─── KANBAN ──────────────────────────────────────────────────
 .o_kanban_record {
-    border-radius: 10px !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
     transition: box-shadow 0.15s ease, transform 0.15s ease;
 
     &:hover {
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13) !important;
         transform: translateY(-2px);
     }
+}
+
+// ─── STATUS BAR (workflow) ───────────────────────────────────
+// Botão ativo no statusbar
+.o_statusbar_status .btn.o_arrow_button_current {
+    background-color: #4F6EF7 !important;
+    border-color: #4F6EF7 !important;
+    color: #fff !important;
+}
+
+// ─── SEARCH FACETS (tags de filtro ativo) ────────────────────
+.o_searchview_facet {
+    background-color: #EEF1FE !important;
+    border-color: rgba(79, 110, 247, 0.3) !important;
+    color: #3A56D4 !important;
+    border-radius: 999px !important;
+
+    .o_searchview_facet_label {
+        color: #4F6EF7 !important;
+    }
+}
+
+// ─── DROPDOWN ────────────────────────────────────────────────
+.dropdown-menu {
+    border-radius: 8px !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10) !important;
+
+    .dropdown-item:hover {
+        background-color: #EEF1FE !important;
+        color: #3A56D4 !important;
+    }
+    .dropdown-item.active,
+    .dropdown-item.selected {
+        color: #4F6EF7 !important;
+    }
+}
+
+// ─── NOTIFICAÇÕES / TOASTS ───────────────────────────────────
+.o_notification {
+    border-radius: 10px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
 }

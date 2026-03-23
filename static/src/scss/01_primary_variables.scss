@@ -1,17 +1,46 @@
 // ============================================================
-//  01_primary_variables.scss  —  VERSÃO MINIMALISTA SEGURA
-//  Regra: SÓ sobrescrever variáveis que o Odoo já declara.
-//  Zero CSS, zero @import, zero variáveis inventadas.
+//  01_primary_variables.scss
+//  Baseado nas variáveis REAIS do Odoo 16 Community.
+//  Como este arquivo é carregado com 'prepend', nossas
+//  variáveis SEM !default sobrescrevem os padrões do Odoo.
+//  Regra: ZERO CSS aqui — apenas variáveis SCSS.
 // ============================================================
 
-// ─── CORES DA MARCA (variáveis nativas do Odoo 16) ───────────
-$o-enterprise-color:        #4F6EF7 !default;
-$o-enterprise-action-color: #3A56D4 !default;
-$o-brand-primary:           #4F6EF7 !default;
-$o-brand-secondary:         #10B981 !default;
+// ─── CORES DA MARCA ──────────────────────────────────────────
+// $o-community-color é a raiz de quase tudo no Odoo Community
+// Sobrescrevemos ela para mudar a cor primária em cascata
+$o-community-color:           #4F6EF7;  // era #71639e (roxo padrão)
 
-// Fundo do conteúdo principal
-$o-main-content-bgcolor:    #F1F5F9 !default;
+// Isso faz $o-brand-primary e $o-brand-odoo herdarem automaticamente
+$o-brand-primary:             #4F6EF7;
+$o-brand-odoo:                #4F6EF7;  // controla a COR DA NAVBAR
 
-// Cor de texto principal  
-$o-main-text-color:         #1E293B !default;
+// Cor de destaque secundária
+$o-brand-secondary:           #10B981;  // era #8f8f8f (cinza)
+
+// ─── NAVBAR ──────────────────────────────────────────────────
+// $o-navbar-background herda $o-brand-odoo acima automaticamente
+// Ajustamos só a borda inferior
+$o-navbar-border-bottom:      1px solid #3A56D4;
+
+// ─── CORES DE STATUS ─────────────────────────────────────────
+$o-success:                   #10B981;  // era #28a745
+$o-info:                      #06B6D4;  // era #17a2b8
+$o-warning:                   #F59E0B;  // era #ffac00
+$o-danger:                    #F43F5E;  // era #dc3545
+
+// ─── FUNDO GERAL ─────────────────────────────────────────────
+$o-main-bg-color:             #F1F5F9;  // era #f0eeee
+
+// ─── TIPOGRAFIA ──────────────────────────────────────────────
+// Aumenta levemente o tamanho base (padrão é 12px — muito pequeno)
+$o-root-font-size:            13px;     // era 12px
+
+// ─── BORDER RADIUS ───────────────────────────────────────────
+// Usando as variáveis que REALMENTE existem no Odoo 16
+$o-border-radius:             0.375rem;  // era 0.25rem — um pouco mais arredondado
+$o-border-radius-lg:          0.75rem;   // era 0.6rem
+$o-border-radius-sm:          0.25rem;   // era 0.2rem
+
+// ─── INPUTS ──────────────────────────────────────────────────
+$o-input-border-required:     #4F6EF7;  // borda dos campos obrigatórios
