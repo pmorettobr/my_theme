@@ -1,0 +1,74 @@
+// ============================================================
+//  04_components.scss  —  VERSÃO MINIMALISTA SEGURA
+//  Refinamentos mínimos nos componentes existentes do Odoo.
+//  Sem reescrever estrutura — só cor, tipografia e raio.
+// ============================================================
+
+// ─── BOTÕES ──────────────────────────────────────────────────
+// Só ajusta a cor primária — estrutura intacta
+.btn-primary {
+    background-color: #4F6EF7 !important;
+    border-color: #4F6EF7 !important;
+    &:hover {
+        background-color: #3A56D4 !important;
+        border-color: #3A56D4 !important;
+    }
+    &:focus, &:active {
+        background-color: #3A56D4 !important;
+        border-color: #3A56D4 !important;
+        box-shadow: 0 0 0 0.2rem rgba(79, 110, 247, 0.25) !important;
+    }
+}
+
+// ─── LINKS ───────────────────────────────────────────────────
+a { color: #4F6EF7; }
+a:hover { color: #3A56D4; }
+
+// ─── BADGES DE STATUS ────────────────────────────────────────
+// Refinamento visual das pills de status
+.o_field_badge .badge,
+.badge.text-bg-success { background-color: #10B981 !important; }
+.badge.text-bg-danger  { background-color: #F43F5E !important; }
+.badge.text-bg-warning { background-color: #F59E0B !important; color: #fff !important; }
+.badge.text-bg-info    { background-color: #06B6D4 !important; }
+
+// ─── CONTROL PANEL ───────────────────────────────────────────
+.o_control_panel {
+    background-color: #ffffff;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+// ─── FORM SHEET ──────────────────────────────────────────────
+// Só adiciona sombra sutil — sem mudar estrutura
+.o_form_sheet {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+}
+
+// ─── LIST VIEW ───────────────────────────────────────────────
+// Hover suave nas linhas
+.o_list_view .o_data_row:hover td {
+    background-color: #EEF1FE !important;
+}
+
+// Header da tabela mais discreto
+.o_list_view thead th {
+    background-color: #F8FAFC !important;
+    color: #64748B !important;
+    font-weight: 600 !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+// ─── KANBAN CARDS ────────────────────────────────────────────
+.o_kanban_record {
+    border-radius: 10px !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07) !important;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+
+    &:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+        transform: translateY(-2px);
+    }
+}

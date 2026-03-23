@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Carrega Google Fonts via template — único jeito correto no Odoo 16 -->
+    <template id="my_theme_fonts" name="My Theme - Google Fonts"
+              inherit_id="web.layout" priority="10">
+        <xpath expr="//head" position="before">
+            <t t-call-assets="my_theme.assets_fonts"/>
+        </xpath>
+    </template>
+
+    <!-- Bundle separado só para o @import da fonte -->
+    <template id="assets_fonts" name="My Theme - Font Assets">
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=DM+Mono:wght@400;500&amp;display=swap"/>
+    </template>
+</odoo>
