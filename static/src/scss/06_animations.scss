@@ -1,0 +1,31 @@
+// ============================================================
+// 06_animations.scss
+//
+// Bundle: web.assets_backend
+//
+// Micro-animações mínimas e seguras.
+// ============================================================
+
+// Fade suave ao trocar de view
+.o_action_manager .o_action {
+    animation: o_theme_fadein 0.18s ease;
+}
+@keyframes o_theme_fadein {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0);   }
+}
+
+// Transição nos botões
+.btn {
+    transition: background-color 0.15s ease,
+                border-color     0.15s ease,
+                box-shadow       0.15s ease !important;
+}
+
+// Respeita preferência do usuário
+@media (prefers-reduced-motion: reduce) {
+    .btn, .o_action_manager .o_action {
+        animation:  none !important;
+        transition: none !important;
+    }
+}

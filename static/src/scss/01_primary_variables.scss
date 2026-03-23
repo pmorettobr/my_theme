@@ -1,0 +1,49 @@
+// ============================================================
+// 01_primary_variables.scss
+//
+// Bundle: web._assets_primary_variables  (prepend)
+//
+// Documentação oficial Odoo 16:
+//   "Regroups the variables which can (and should) be available
+//    in every asset bundle."
+//
+// REGRAS OBRIGATÓRIAS:
+//   ✅ Apenas $variáveis SCSS
+//   ✅ Sem !default — nosso arquivo entra ANTES via 'prepend',
+//      então nossas vars sobrescrevem as do Odoo (que usam !default)
+//   ❌ Nenhuma regra CSS
+//   ❌ Nenhum @import url()
+//   ❌ Nenhuma variável inventada (só as que existem no Odoo)
+//
+// Variáveis reais confirmadas no source do Odoo 16:
+//   /web/static/src/scss/primary_variables.scss
+// ============================================================
+
+// ── COR PRIMÁRIA ─────────────────────────────────────────────
+// $o-community-color é a raiz de quase tudo no Community.
+// Sobrescrevendo ela, $o-brand-primary e $o-brand-odoo herdam.
+$o-community-color:    #4F6EF7;   // padrão: #71639e (roxo)
+$o-brand-primary:      #4F6EF7;
+$o-brand-odoo:         #4F6EF7;   // controla a cor da navbar
+
+// ── COR SECUNDÁRIA ───────────────────────────────────────────
+$o-brand-secondary:    #10B981;   // padrão: #8f8f8f (cinza)
+
+// ── CORES DE STATUS ──────────────────────────────────────────
+$o-success:            #10B981;   // padrão: #28a745
+$o-info:               #06B6D4;   // padrão: #17a2b8
+$o-warning:            #F59E0B;   // padrão: #ffac00
+$o-danger:             #F43F5E;   // padrão: #dc3545
+
+// ── FUNDO DO BACKEND ─────────────────────────────────────────
+$o-main-bg-color:      #F1F5F9;   // padrão: #f0eeee
+
+// ── TAMANHO BASE DA FONTE ────────────────────────────────────
+// Padrão Odoo: 12px — aumentamos para 13px (mais legível)
+$o-root-font-size:     13px;      // padrão: 12px
+
+// ── BORDER RADIUS ────────────────────────────────────────────
+// Usando APENAS as variáveis que EXISTEM no Odoo 16
+$o-border-radius:      0.4rem;    // padrão: 0.25rem
+$o-border-radius-lg:   0.75rem;   // padrão: 0.6rem
+$o-border-radius-sm:   0.25rem;   // padrão: 0.2rem
